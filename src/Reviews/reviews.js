@@ -4,10 +4,11 @@ class Reviews extends Component{
   constructor(props){
     super(props);
     this.apiKey = process.env.REACT_APP_API_KEY;
+    this.apiUrl = process.env.REACT_APP_API_URL;
     this.state = {isLoaded: false, items: []}
   }
   componentDidMount() {
-    var url = "https://api.nytimes.com/svc/movies/v2/reviews/search.json?api-key=" + this.apiKey;
+    var url = this.apiUrl + this.apiKey;
 
     console.log('---url: '+ url)
     fetch(url)

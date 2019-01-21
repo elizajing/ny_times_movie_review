@@ -7,6 +7,7 @@ class Search extends Component {
     this.state = {value: ''};
 
     this.apiKey = process.env.REACT_APP_API_KEY;
+    this.apiUrl = process.env.REACT_APP_API_URL;
     this.state = {isLoaded: false, items: []};
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -29,7 +30,7 @@ class Search extends Component {
   }
 
   getSearchData(keyWord){
-    var url = "https://api.nytimes.com/svc/movies/v2/reviews/search.json?api-key=" + this.apiKey + "&query=" + keyWord;
+    var url = this.apiUrl + this.apiKey + "&query=" + keyWord;
 
     console.log('---url: '+ url)
     fetch(url)
