@@ -9,6 +9,7 @@ class App extends Component {
 
     this.handleReviewsClick = this.handleReviewsClick.bind(this);
     this.handleSearchClick = this.handleSearchClick.bind(this);
+    this.handleHomeClick = this.handleHomeClick.bind(this);
 
     this.state = {
       reviews: false,
@@ -32,21 +33,32 @@ class App extends Component {
       home: false
     })
   }
-  
-  render() {
-    const {reviews, search} = this.state;
-    let div;
 
+  handleHomeClick(){
+    this.setState({
+      reviews: false,
+      search: false,
+      home: true
+    })
+  }
+
+  render() {
+    const {reviews, search, home} = this.state;
+    let div;
+    console.log('-----'+home)
     if(reviews){
       div = <Reviews />
     }else if(search){
       div = <Search />
     }else{
-      div = <p>Find the latest movie reviews from New York Times magazine!</p>
+      div = <p className="p">Find the latest movie reviews from New York Times magazine!</p>
     }
     return (
       <div>
         <div className="header">
+          <div className="header-item">
+            <button className="button" onClick={this.handleHomeClick}><h1>Hello!</h1></button>
+          </div>
           <div className="header-item">
             <button className="button" onClick={this.handleReviewsClick}><h1>Latest Reviews</h1></button>
           </div>
