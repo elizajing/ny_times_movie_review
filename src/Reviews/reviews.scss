@@ -1,0 +1,13 @@
+%list-container{
+  display: flex;
+}
+.list-item{
+  @extend %list-container;
+  flex-direction: column;
+  margin: 10px;
+}
+.list-row{
+  @extend %list-container;
+  flex-direction: row;
+  margin: 10px;
+}

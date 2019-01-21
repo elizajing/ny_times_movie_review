@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './reviews.scss';
 
 class Reviews extends Component{
   constructor(props){
@@ -10,7 +11,6 @@ class Reviews extends Component{
   componentDidMount() {
     var url = this.apiUrl + this.apiKey;
 
-    console.log('---url: '+ url)
     fetch(url)
     .then(res => res.json())
     .then(
@@ -19,6 +19,14 @@ class Reviews extends Component{
             isLoaded: true,
             items: result.results
           });
+
+          if(this.state.items.length >= 20){
+            var tmp = this.state.items;
+            this.setState({
+              items: tmp.slice(10)
+            })
+          }
+
         },
         (error) => {
           this.setState({
@@ -27,7 +35,6 @@ class Reviews extends Component{
           });
         }
       )
-
   }
 
 
@@ -39,13 +46,20 @@ class Reviews extends Component{
       return <div>Loading...</div>;
     } else {
       return (
-        <ul>
+        <div className="list-container">
           {items.map(item => (
-            <li key={item.display_title}>
-              {item.headline}
-            </li>
+
+            <div className="list-item" key={item.display_title}>
+              <div className="list-row">
+                <img src={item.multimedia.src} alt="pic" height="150" width="150"></img>
+                <div className="list-item">
+                  <b>{item.display_title}</b>
+                  {item.summary_short}
+                </div>
+              </div>
+            </div>
           ))}
-        </ul>
+        </div>
       );
     }
   }
