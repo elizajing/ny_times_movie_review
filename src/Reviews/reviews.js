@@ -48,10 +48,11 @@ class Reviews extends Component{
       return (
         <div className="list-container">
           {items.map(item => (
-
             <div className="list-item" key={item.display_title}>
               <div className="list-row">
-                <img src={item.multimedia.src} alt="pic" height="150" width="150"></img>
+                <div className="img-div">
+                  <img src={item.multimedia.src} alt="pic"></img>
+                </div>
                 <div className="list-item">
                   <b>{item.display_title}</b>
                   {item.summary_short}
