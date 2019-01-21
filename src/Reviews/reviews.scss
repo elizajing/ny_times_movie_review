@@ -6,10 +6,23 @@
   @extend %list-container;
   flex-direction: column;
   margin: 10px;
+
 }
 .list-row{
   @extend %list-container;
   flex-direction: row;
+  margin: 10px;
+}
+.list-row-item{
+  @extend %list-container;
+  flex-direction: column;
+  width: 70%;
+  margin: 10px;
+}
+.list-date-item{
+  @extend %list-container;
+  flex-direction: column;
+  width: 15%;
   margin: 10px;
 }
 .image-div{
@@ -17,4 +30,23 @@
   height: 150px;
   background-repeat: no-repeat;
   background-size: cover;
+}
+.link{
+  display: inline-block;
+  color: #000;
+  text-decoration: none;
+}
+.link::after{
+  content: '';
+  display: block;
+  width: 0;
+  height: 2px;
+  background: #000;
+  transition: width .3s;
+}
+.link:hover::after{
+  width: 30%;
+}
+.link:visited{
+   text-decoration: none;
 }

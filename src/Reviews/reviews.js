@@ -50,13 +50,17 @@ class Reviews extends Component{
           {items.map(item => (
             <div className="list-item" key={item.display_title}>
               <div className="list-row">
+                <div className="list-date-item">
+                  {item.publication_date}
+                </div>
+                <div className="list-row-item">
+                  <a href={item.link.url} className="link"><b>{item.display_title}</b></a>
+                  {item.summary_short}
+                </div>
                 <div className="img-div">
                   <img src={item.multimedia.src} alt="pic"></img>
                 </div>
-                <div className="list-item">
-                  <b>{item.display_title}</b>
-                  {item.summary_short}
-                </div>
+
               </div>
             </div>
           ))}
