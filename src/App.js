@@ -45,7 +45,6 @@ class App extends Component {
   render() {
     const {reviews, search, home} = this.state;
     let div;
-    console.log('-----'+home)
     if(reviews){
       div = <Reviews />
     }else if(search){

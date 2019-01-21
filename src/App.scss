@@ -2,7 +2,7 @@
   height: 50px;
   width: 700px;
   display: flex;
-  margin-bottom: 15px;
+  margin-bottom: 30px;
 }
 .header-item{
   flex-direction: row;
@@ -11,18 +11,21 @@
 .container{
   align-items: center;
   height: 100%;
-  background-color: #305674;
+  border-style: solid;
+  border-width: 10px;
+  border-color: #305674;
   padding-top: 20px;
   text-align: left;
   margin-left: 30px;
   margin-right: 30px;
 }
 .button {
-  border: none;
+  border: 10px solid white;
+  // padding: 3px;
   background-color: white;
 }
 .button:hover {
-  border: 3px solid #305674;
+  border: 10px solid #305674;
 }
 .button:focus {outline:0;}
 .p{
