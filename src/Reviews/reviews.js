@@ -19,14 +19,6 @@ class Reviews extends Component{
             isLoaded: true,
             items: result.results
           });
-
-          if(this.state.items.length >= 20){
-            var tmp = this.state.items;
-            this.setState({
-              items: tmp.slice(10)
-            })
-          }
-
         },
         (error) => {
           this.setState({

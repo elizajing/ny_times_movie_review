@@ -62,7 +62,7 @@ class App extends Component {
             <button className="button" onClick={this.handleReviewsClick}><h1>Latest Reviews</h1></button>
           </div>
           <div className="header-item">
-            <button className="button" onClick={this.handleSearchClick}><h1>Find</h1></button>
+            <button className="button" onClick={this.handleSearchClick}><h1>Find Reviews</h1></button>
           </div>
         </div>
         <div className="container">

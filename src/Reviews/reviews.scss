@@ -6,7 +6,6 @@
   @extend %list-container;
   flex-direction: column;
   margin: 10px;
-
 }
 .list-row{
   @extend %list-container;
@@ -17,13 +16,15 @@
   @extend %list-container;
   flex-direction: column;
   width: 70%;
-  margin: 10px;
+  margin-left: 5px;
 }
 .list-date-item{
   @extend %list-container;
   flex-direction: column;
   width: 15%;
   margin: 10px;
+  color: grey;
+  font-size: 15px;
 }
 .image-div{
   width: 100%;

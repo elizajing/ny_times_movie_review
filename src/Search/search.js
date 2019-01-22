@@ -9,30 +9,22 @@ class Search extends Component {
     this.apiKey = process.env.REACT_APP_API_KEY;
     this.apiUrl = process.env.REACT_APP_API_URL;
     this.state = {isLoaded: false, items: []};
-    this.handleChange = this.handleChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleKeyUp = this.handleKeyUp.bind(this);
+    this.timeout = 0;
   }
 
+  handleKeyUp(event){
+    clearTimeout(this.timeout);
 
-  handleChange(event) {
-    this.setState({value: event.target.value});
-  }
-
-  handleSubmit(event) {
-    console.log('----this.state.value: ' + this.state.value)
-    this.setState({
-      value: this.state.value
-    }, () => {
-      this.getSearchData(this.state.value);
-    })
-
-    event.preventDefault();
+    const val = event.target.value
+    this.timeout = setTimeout(()=>{
+      this.getSearchData(val)
+    }, 500)
   }
 
   getSearchData(keyWord){
     var url = this.apiUrl + this.apiKey + "&query=" + keyWord;
 
-    console.log('---url: '+ url)
     fetch(url)
     .then(res => res.json())
     .then(
@@ -57,13 +49,7 @@ class Search extends Component {
 
       return (
         <div className="results">
-          <form onSubmit={this.handleSubmit}>
-            <label>
-              Name:
-              <input type="text" value={this.state.value} onChange={this.handleChange} />
-            </label>
-            <input type="submit" value="Submit" />
-          </form>
+          <input type="text" onKeyUp={this.handleKeyUp} />
           <ul>
             {this.state.items.map(item => (
               <li key={item.display_title}>
