@@ -10,11 +10,11 @@ class Search extends Component {
     this.apiKey = process.env.REACT_APP_API_KEY;
     this.apiUrl = process.env.REACT_APP_API_URL;
     this.state = {isLoaded: false, items: []};
-    this.handleKeyUp = this.handleKeyUp.bind(this);
+    
     this.timeout = 0;
   }
 
-  handleKeyUp(event){
+  handleKeyUp = (event) => {
     clearTimeout(this.timeout);
 
     const val = event.target.value
@@ -31,7 +31,7 @@ class Search extends Component {
 
   }
 
-  getSearchData(keyWord){
+  getSearchData = (keyWord) => {
     var url = this.apiUrl + this.apiKey + "&query=" + keyWord;
 
     fetch(url)

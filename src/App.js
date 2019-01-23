@@ -7,18 +7,15 @@ class App extends Component {
   constructor(props){
     super(props);
 
-    this.handleReviewsClick = this.handleReviewsClick.bind(this);
-    this.handleSearchClick = this.handleSearchClick.bind(this);
-    this.handleHomeClick = this.handleHomeClick.bind(this);
-
     this.state = {
       reviews: false,
       search: false,
       home: true
     }
   }
-
-  handleReviewsClick(){
+//()=> lexical scoping,
+// Arrow Functions lexically bind their context so this actually refers to the originating context
+  handleReviewsClick = () =>{
     this.setState({
       reviews: true,
       search: false,
@@ -26,7 +23,7 @@ class App extends Component {
     })
   }
 
-  handleSearchClick(){
+  handleSearchClick = () =>{
     this.setState({
       reviews: false,
       search: true,
@@ -34,7 +31,7 @@ class App extends Component {
     })
   }
 
-  handleHomeClick(){
+  handleHomeClick = () =>{
     this.setState({
       reviews: false,
       search: false,
