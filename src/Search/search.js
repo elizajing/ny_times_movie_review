@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './search.css';
+import '../Reviews/reviews.scss';
 
 class Search extends Component {
   constructor(props){
@@ -17,9 +18,17 @@ class Search extends Component {
     clearTimeout(this.timeout);
 
     const val = event.target.value
-    this.timeout = setTimeout(()=>{
-      this.getSearchData(val)
-    }, 500)
+    if(val === ''){
+      this.setState({
+        isLoaded: true,
+        items: []
+      })
+    }else{
+      this.timeout = setTimeout(()=>{
+        this.getSearchData(val)
+      }, 500)
+    }
+
   }
 
   getSearchData(keyWord){
@@ -47,19 +56,29 @@ class Search extends Component {
 
   render(){
 
-      return (
+    return (
         <div className="results">
-          <input type="text" onKeyUp={this.handleKeyUp} />
-          <ul>
+          <input type="text" onKeyUp={this.handleKeyUp} placeholder="search"/>
+          <div className="list-container">
             {this.state.items.map(item => (
-              <li key={item.display_title}>
-                <h2>{item.display_title}</h2>
-                <p>{item.summary_short}</p>
-              </li>
+              <div className="list-item" key={item.display_title}>
+                <div className="list-row">
+                  <div className="list-date-item">
+                    {item.publication_date}
+                  </div>
+                  <div className="list-row-item">
+                    <a href={item.link.url} className="link"><b>{item.display_title}</b></a>
+                    {item.summary_short}
+                  </div>
+
+                </div>
+              </div>
             ))}
-          </ul>
+          </div>
         </div>
       );
+
+
   }
 }
 
