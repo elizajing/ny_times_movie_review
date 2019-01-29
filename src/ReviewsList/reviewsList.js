@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import not_found from '../assets/not_found.svg';
+import '../Reviews/reviews.scss';
 
 class ReviewsList extends Component{
   constructor(props){
@@ -21,10 +23,9 @@ class ReviewsList extends Component{
                 <a href={item.link.url} className="link"><b>{item.display_title}</b></a>
                 {item.summary_short}
               </div>
-              <div className="imge-div">
-                <img src={item.multimedia.src} alt="pic"></img>
+              <div className="img-div">
+                {item.multimedia === null ? <img src={not_found} alt="pic"></img> : <img src={item.multimedia.src} alt="pic"></img>}
               </div>
-
             </div>
           </div>
         ))}

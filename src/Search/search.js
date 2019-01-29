@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './search.css';
 import '../Reviews/reviews.scss';
+import ReviewsList from '../ReviewsList/reviewsList.js';
 
 class Search extends Component {
   constructor(props){
@@ -10,7 +11,7 @@ class Search extends Component {
     this.apiKey = process.env.REACT_APP_API_KEY;
     this.apiUrl = process.env.REACT_APP_API_URL;
     this.state = {isLoaded: false, items: []};
-    
+
     this.timeout = 0;
   }
 
@@ -37,48 +38,38 @@ class Search extends Component {
     fetch(url)
     .then(res => res.json())
     .then(
-        (result) => {
-          this.setState({
-            keyWord: keyWord,
-            isLoaded: true,
-            items: result.results
-          });
-        },
-        (error) => {
-          this.setState({
-            keyWord: keyWord,
-            isLoaded: true,
-            error
-          });
-        }
-      )
+      (result) => {
+        this.setState({
+          isLoaded: true,
+          items: result.results
+        });
+      },
+      (error) => {
+        this.setState({
+          isLoaded: true,
+          error
+        });
+      }
+    )
   }
 
   render(){
+    const { error, isLoaded, items } = this.state;
+    let div ;
 
+    if (error) {
+      div = <div>Error: {error.message}</div>;
+    } else if (!isLoaded) {
+      div = '';
+    } else {
+      div = <ReviewsList items={items} />
+    }
     return (
-        <div className="results">
-          <input type="text" onKeyUp={this.handleKeyUp} placeholder="search"/>
-          <div className="list-container">
-            {this.state.items.map(item => (
-              <div className="list-item" key={item.display_title}>
-                <div className="list-row">
-                  <div className="list-date-item">
-                    {item.publication_date}
-                  </div>
-                  <div className="list-row-item">
-                    <a href={item.link.url} className="link"><b>{item.display_title}</b></a>
-                    {item.summary_short}
-                  </div>
-
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      );
-
-
+      <div className="results">
+        <input type="text" onKeyUp={this.handleKeyUp} placeholder="search"/>
+        {div}
+      </div>
+    )
   }
 }
 
