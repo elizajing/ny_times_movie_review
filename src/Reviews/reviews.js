@@ -7,7 +7,9 @@ class Reviews extends Component{
     super(props);
     this.apiKey = process.env.REACT_APP_API_KEY;
     this.apiUrl = process.env.REACT_APP_API_URL;
-    this.state = {error: false, isLoaded: false, items: []}
+    this.state = {error: false, isLoaded: false, items: [], searchError: false, searchLoaded: false, searchRes: []}
+
+    this.timeout = 0;
   }
   componentDidMount() {
     var url = this.apiUrl + this.apiKey;
@@ -30,15 +32,69 @@ class Reviews extends Component{
       )
   }
 
-  render(){
-    const { error, isLoaded, items } = this.state;
-    if (error) {
-      return <div>Error: {error.message}</div>;
-    } else if (!isLoaded) {
-      return <div className="loading">Loading...</div>;
-    } else {
-      return <ReviewsList items={items} />
+  handleKeyUp = (event) => {
+    clearTimeout(this.timeout);
+
+    const val = event.target.value
+    if(val === ''){
+      this.setState({
+        searchLoaded: true,
+        searchRes: this.state.items
+      })
+    }else{
+      this.timeout = setTimeout(()=>{
+        this.getSearchData(val)
+      }, 500)
     }
+
+  }
+
+  getSearchData = (keyWord) => {
+    var url = this.apiUrl + this.apiKey + "&query=" + keyWord;
+
+    fetch(url)
+    .then(res => res.json())
+    .then(
+      (result) => {
+        this.setState({
+          searchLoaded: true,
+          searchRes: result.results
+        });
+      },
+      (error) => {
+        this.setState({
+          searchLoaded: true,
+          searchError: error
+        });
+      }
+    )
+  }
+ 
+  render(){
+    const { error, isLoaded, items, searchError, searchLoaded, searchRes } = this.state;
+    let div;
+
+    if (error) {
+      div =  <div>Error: {error.message}</div>;
+    } else if (!isLoaded) {
+      div =  <div className="loading">Loading...</div>;
+    } else if (searchError){
+      div = <div>Search failed: {searchError.message}</div>
+    } else if (searchLoaded){
+      div = <ReviewsList items={searchRes}/>
+    } else {
+      div =  <ReviewsList items={items} />
+    }
+
+    return(
+      
+      <div>
+        <input type="text" onKeyUp={this.handleKeyUp} placeholder="search"/>
+        
+        {div}
+      </div>
+      
+    )
   }
 }
 export default Reviews;

@@ -1,7 +1,6 @@
 %list-container{
   display: flex;
   font-size: 20px;
-  // align-content: center;
 }
 .list-item{
   @extend %list-container;
@@ -55,4 +54,17 @@
 }
 .loading{
   margin: 10px;
+}
+.results{
+  margin: 20px;
+}
+input:focus{
+  outline: none;
+}
+input{
+  width: 200px;
+  height: 30px;
+  font-size: 20px;
+  margin-left: 60px;
+  margin-top: 20px;
 }

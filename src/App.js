@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import './App.scss';
 import Reviews from './Reviews/reviews.js';
-import Search from './Search/search.js';
 
 class App extends Component {
   constructor(props){
@@ -9,7 +8,6 @@ class App extends Component {
 
     this.state = {
       reviews: false,
-      search: false,
       home: true
     }
   }
@@ -18,15 +16,6 @@ class App extends Component {
   handleReviewsClick = () =>{
     this.setState({
       reviews: true,
-      search: false,
-      home: false
-    })
-  }
-
-  handleSearchClick = () =>{
-    this.setState({
-      reviews: false,
-      search: true,
       home: false
     })
   }
@@ -34,18 +23,15 @@ class App extends Component {
   handleHomeClick = () =>{
     this.setState({
       reviews: false,
-      search: false,
       home: true
     })
   }
 
   render() {
-    const {reviews, search} = this.state;
+    const {reviews} = this.state;
     let div;
     if(reviews){
       div = <Reviews />
-    }else if(search){
-      div = <Search />
     }else{
       div = <p className="p">Find the latest movie reviews from New York Times magazine!</p>
     }
@@ -56,10 +42,7 @@ class App extends Component {
             <button className="button" onClick={this.handleHomeClick}><h1>Hello!</h1></button>
           </div>
           <div className="header-item">
-            <button className="button" onClick={this.handleReviewsClick}><h1>Latest Reviews</h1></button>
-          </div>
-          <div className="header-item">
-            <button className="button" onClick={this.handleSearchClick}><h1>Find Reviews</h1></button>
+            <button className="button" onClick={this.handleReviewsClick}><h1>Reviews</h1></button>
           </div>
         </div>
         <div className="container">
