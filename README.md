@@ -14,6 +14,6 @@ TODO
 ----
 Handle errors, instead of the web browser throwing errors like can't iterate over undefined.
 - Handle return data that has null multimedia values in `Search` -> done
-- Add font awesome
+- Add font awesome (?), depends on the design change
 - Not found
 - API key not valid, return json: `{"fault":{"faultstring":"Invalid ApiKey","detail":{"errorcode":"oauth.v2.InvalidApiKey"}}}`

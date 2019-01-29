@@ -30,7 +30,6 @@ class Reviews extends Component{
       )
   }
 
-
   render(){
     const { error, isLoaded, items } = this.state;
     if (error) {

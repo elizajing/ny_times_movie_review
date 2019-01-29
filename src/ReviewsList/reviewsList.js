@@ -16,16 +16,18 @@ class ReviewsList extends Component{
         {items.map(item => (
           <div className="list-item" key={item.display_title}>
             <div className="list-row">
-              <div className="list-date-item">
-                {item.publication_date}
-              </div>
-              <div className="list-row-item">
-                <a href={item.link.url} className="link"><b>{item.display_title}</b></a>
-                {item.summary_short}
-              </div>
               <div className="img-div">
                 {item.multimedia === null ? <img src={not_found} alt="pic"></img> : <img src={item.multimedia.src} alt="pic"></img>}
               </div>
+              
+              <div className="list-row-item">
+                <div className="list-date-item">
+                  {item.publication_date}
+                </div>
+                <a href={item.link.url} className="link"><b>{item.display_title}</b></a>
+                {item.summary_short}
+              </div>
+              
             </div>
           </div>
         ))}

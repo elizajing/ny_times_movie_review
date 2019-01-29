@@ -1,6 +1,7 @@
 %list-container{
   display: flex;
   font-size: 20px;
+  // align-content: center;
 }
 .list-item{
   @extend %list-container;
@@ -10,19 +11,20 @@
 .list-row{
   @extend %list-container;
   flex-direction: row;
-  margin: 10px;
+  margin-left: 50px;
+  margin-top: 40px;
 }
 .list-row-item{
   @extend %list-container;
   flex-direction: column;
   width: 70%;
-  margin-left: 5px;
+  margin-left: 50px;
 }
 .list-date-item{
   @extend %list-container;
   flex-direction: column;
   width: 15%;
-  margin: 10px;
+  margin: 5px;
   color: grey;
   font-size: 15px;
 }
