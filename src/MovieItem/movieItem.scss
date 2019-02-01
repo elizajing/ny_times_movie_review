@@ -1,0 +1,43 @@
+$movie-title: 16px;
+$text-size: 12px;
+$standard-color: #305674;
+$margin: 1%;
+$item-margin: 4%;
+
+.wrapper{
+    height: 30%;
+    width: 30%;
+    border-style: solid;
+    border-width: 10px;
+    border-color: $standard-color;  
+    display: flex; 
+    flex-direction: row;
+    justify-content: center;
+    margin: $margin;
+}
+
+.wrapper > .horizontal-item {
+    margin: $margin;
+    width: 50%;
+}
+
+.img-container img {
+    margin: auto;
+    width: 100%;
+}
+
+.date {
+    color: grey;
+    font-size: 10px;
+    margin: $item-margin;
+}
+.overview {
+    font-size: $text-size;
+    margin-left: $item-margin;
+    margin-top: 4%;
+}
+.title{
+    font-size: $movie-title;
+    font-weight: bold;
+    margin: $item-margin;
+}

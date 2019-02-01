@@ -55,7 +55,7 @@ class InTheatres extends Component{
   }
 
   getPosters(list){
-    var size = 'w154';
+    var size = 'w185';
     var configurationUrl = this.configurationPath + this.apiKey
     let imageUrlList;
     let baseUrl;

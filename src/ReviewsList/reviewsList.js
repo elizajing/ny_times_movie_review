@@ -3,11 +3,7 @@ import not_found from '../assets/not_found.svg';
 import '../Reviews/reviews.scss';
 
 class ReviewsList extends Component{
-  constructor(props){
-    super(props);
-    this.items = [];
-  }
-
+  
   render(){
     const {items} = this.props
     //item.multimedia can be null on some items
