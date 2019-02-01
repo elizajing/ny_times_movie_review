@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.scss';
 import Reviews from './Reviews/reviews.js';
+import InTheatres from './InTheatres/inTheatres';
 
 class App extends Component {
   constructor(props){
@@ -8,7 +9,8 @@ class App extends Component {
 
     this.state = {
       reviews: false,
-      home: true
+      home: true,
+      inTheatres: false
     }
   }
 //()=> lexical scoping,
@@ -16,22 +18,33 @@ class App extends Component {
   handleReviewsClick = () =>{
     this.setState({
       reviews: true,
-      home: false
+      home: false,
+      inTheatres: false
     })
   }
 
   handleHomeClick = () =>{
     this.setState({
       reviews: false,
-      home: true
+      home: true,
+      inTheatres: false
     })
   }
 
+  handleInTheatresClick = () =>{
+    this.setState({
+      reviews: false,
+      home: false,
+      inTheatres: true
+    })
+  }  
   render() {
-    const {reviews} = this.state;
+    const {reviews, inTheatres} = this.state;
     let div;
     if(reviews){
       div = <Reviews />
+    }else if(inTheatres){
+      div = <InTheatres />
     }else{
       div = <p className="p">Find the latest movie reviews from New York Times magazine!</p>
     }
@@ -40,6 +53,12 @@ class App extends Component {
         <div className="header">
           <div className="header-item">
             <button className="button" onClick={this.handleHomeClick}><h1>Hello!</h1></button>
+          </div>
+          <div className="header-item">
+            <button className="button" onClick={this.handleInTheatresClick}><h1>In Theatres</h1></button>
+          </div>
+          <div className="header-item">
+            <button className="button"><h1>Most Popular</h1></button>
           </div>
           <div className="header-item">
             <button className="button" onClick={this.handleReviewsClick}><h1>Reviews</h1></button>

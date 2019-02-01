@@ -5,19 +5,19 @@
 .list-item{
   @extend %list-container;
   flex-direction: column;
-  margin: 10px;
+  margin: 1%;
 }
 .list-row{
   @extend %list-container;
   flex-direction: row;
-  margin-left: 50px;
-  margin-top: 40px;
+  margin-left: 3%;
+  margin-top: 2%;
 }
 .list-row-item{
   @extend %list-container;
   flex-direction: column;
   width: 70%;
-  margin-left: 50px;
+  margin-left: 8%;
 }
 .list-date-item{
   @extend %list-container;
@@ -55,16 +55,13 @@
 .loading{
   margin: 10px;
 }
-.results{
-  margin: 20px;
-}
 input:focus{
   outline: none;
 }
 input{
-  width: 200px;
-  height: 30px;
+  width: 20%;
+  // height: 30%;
   font-size: 20px;
-  margin-left: 60px;
-  margin-top: 20px;
+  margin-left: 4%;
+  margin-top: 2%;
 }
