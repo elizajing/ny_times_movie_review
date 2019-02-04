@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import '../Reviews/reviews.scss';
-import not_found from '../assets/not_found.svg';
+import MovieItem from '../MovieItem/movieItem.js';
 
 class InTheatres extends Component{
   constructor(props){
@@ -102,27 +102,15 @@ class InTheatres extends Component{
     }
 
     return (
-      <div className="list-container">
-      {div}
-      {items.map(item => (
-        <div className="list-item" key={item.title}>
-          <div className="list-row">
-            <div className="img-div">
-              {item.poster_path === null ? <img src={not_found} alt="pic"></img> : <img src={item.poster_path} alt="pic"></img>}
-            </div>
-            
-            <div className="list-row-item">
-              <div className="list-date-item">
-                {item.release_date}
-              </div>
-              
-              <b>{item.title}</b>
-              {item.overview}
-            </div>
-            
-          </div>
-        </div>
-      ))}
+      <div className="movies-grid">
+        {div}
+        {items.map(item => (
+          <MovieItem 
+          image={item.poster_path} 
+          date={item.release_date}
+          title={item.title}
+          overview={item.overview} />
+        ))}
     </div>
     );
   }
