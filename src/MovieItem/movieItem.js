@@ -5,7 +5,7 @@ import not_found from '../assets/not_found.svg';
 class MovieItem extends Component{
     
     render(){
-        const {image, date, title, overview} = this.props;
+        const {image, date, title, title_link, overview} = this.props;
         return(
             <div className="wrapper">
                 <div className="horizontal-item">
@@ -14,7 +14,7 @@ class MovieItem extends Component{
                     </div>
                 </div>
                 <div className="horizontal-item">
-                    <div className="title">{title}</div>
+                    <div className="title"><a href={title_link} className="link"><b>{title}</b></a></div>
                     <div className="date">{date}</div>
                     <div className="overview">{overview}</div>
                 </div>

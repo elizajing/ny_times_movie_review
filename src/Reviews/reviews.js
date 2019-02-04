@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import './reviews.scss';
 import ReviewsList from '../ReviewsList/reviewsList.js';
+
 
 class Reviews extends Component{
   constructor(props){
@@ -90,7 +90,6 @@ class Reviews extends Component{
       
       <div>
         <input type="text" onKeyUp={this.handleKeyUp} placeholder="search"/>
-        
         {div}
       </div>
       

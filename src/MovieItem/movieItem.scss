@@ -41,3 +41,36 @@ $item-margin: 4%;
     font-weight: bold;
     margin: $item-margin;
 }
+.link{
+    display: inline-block;
+    color: #000;
+    text-decoration: none;
+  }
+  .link::after{
+    content: '';
+    display: block;
+    width: 0;
+    height: 2px;
+    background: #000;
+    transition: width .3s;
+  }
+  .link:hover::after{
+    width: 90%;
+  }
+  .link:visited{
+     text-decoration: none;
+  }
+  .loading{
+    margin: 10px;
+  }
+  input:focus{
+    outline: none;
+  }
+  input{
+    width: 20%;
+    // height: 30%;
+    font-size: 20px;
+    margin-left: 4%;
+    margin-top: 2%;
+  }
+  

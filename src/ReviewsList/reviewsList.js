@@ -1,30 +1,21 @@
 import React, { Component } from 'react';
-import not_found from '../assets/not_found.svg';
-import '../Reviews/reviews.scss';
+import MovieItem from '../MovieItem/movieItem.js';
+import '../InTheatres/inTheatres.scss';
 
 class ReviewsList extends Component{
   
   render(){
     const {items} = this.props
-    //item.multimedia can be null on some items
     return (
-      <div className="list-container">
+      <div className="movies-grid">
         {items.map(item => (
-          <div className="list-item" key={item.display_title}>
-            <div className="list-row">
-              <div className="img-div">
-                {item.multimedia === null ? <img src={not_found} alt="pic"></img> : <img src={item.multimedia.src} alt="pic"></img>}
-              </div>
-              <div className="list-row-item">
-                <div className="list-date-item">
-                  {item.publication_date}
-                </div>
-                <a href={item.link.url} className="link"><b>{item.display_title}</b></a>
-                {item.summary_short}
-              </div>
-            </div>
-          </div>
-        ))}
+          <MovieItem 
+          image={item.multimedia.src} 
+          date={item.publication_date}
+          title={item.display_title}
+          title_link={item.link.url}
+          overview={item.summary_short} />
+          ))}
       </div>
     );
   }

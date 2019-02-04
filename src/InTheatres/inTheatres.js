@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import '../Reviews/reviews.scss';
 import MovieItem from '../MovieItem/movieItem.js';
 
 class InTheatres extends Component{

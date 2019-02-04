@@ -3,6 +3,7 @@ import './App.scss';
 import Reviews from './Reviews/reviews.js';
 import InTheatres from './InTheatres/inTheatres';
 import MostPopular from './MostPopular/mostPopular.js'
+
 class App extends Component {
   constructor(props){
     super(props);
