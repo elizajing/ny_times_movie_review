@@ -61,7 +61,7 @@ class App extends Component {
     }else if(mostPopular){
       div = <MostPopular />
     }else{
-      div = <p className="p"><span role="img" aria-label="smojies">🐑 😬</span></p>
+      div = <p className="p"><span role="img" aria-label="smojies">🐑 😬 </span></p>
     }
     return (
       <div>
