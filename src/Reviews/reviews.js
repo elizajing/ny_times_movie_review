@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import ReviewsList from '../ReviewsList/reviewsList.js';
 
-
 class Reviews extends Component{
   constructor(props){
     super(props);

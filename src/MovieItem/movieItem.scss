@@ -5,8 +5,8 @@ $margin: 1%;
 $item-margin: 4%;
 
 .wrapper{
-    height: 30%;
-    width: 30%;
+    height: 40%;
+    width: 40%;
     border-style: solid;
     border-width: 10px;
     border-color: $standard-color;  
@@ -55,7 +55,7 @@ $item-margin: 4%;
     transition: width .3s;
   }
   .link:hover::after{
-    width: 90%;
+    width: 100%;
   }
   .link:visited{
      text-decoration: none;
