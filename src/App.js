@@ -53,7 +53,7 @@ class App extends Component {
     })
   }
   render() {
-    const {reviews, inTheatres, mostPopular} = this.state;
+    const {home, reviews, inTheatres, mostPopular} = this.state;
     let div;
     if(reviews){
       div = <Reviews />
@@ -62,22 +62,22 @@ class App extends Component {
     }else if(mostPopular){
       div = <MostPopular />
     }else{
-      div = <p className="p"><span role="img" aria-label="smojies">🐑 😬 </span></p>
+      div = <p className="p"><span role="img" aria-label="smojies"> 🎬 🎥 🍿 😬 </span></p>
     }
     return (
       <div>
         <div className="header">
           <div className="header-item">
-            <button className="button" onClick={this.handleHomeClick}><h1>Hello!</h1></button>
+            <button className={home ? 'button-selected' : 'button'} onClick={this.handleHomeClick}><h1>Hello!</h1></button>
           </div>
           <div className="header-item">
-            <button className="button" onClick={this.handleInTheatresClick}><h1>In Theatres</h1></button>
+            <button className={inTheatres ? 'button-selected' : 'button'} onClick={this.handleInTheatresClick}><h1>In Theatres</h1></button>
           </div>
           <div className="header-item">
-            <button className="button" onClick={this.handleMostPopularClick}><h1>Most Popular</h1></button>
+            <button className={mostPopular ? 'button-selected' : 'button'} onClick={this.handleMostPopularClick}><h1>Most Popular</h1></button>
           </div>
           <div className="header-item">
-            <button className="button" onClick={this.handleReviewsClick}><h1>Reviews</h1></button>
+            <button className={reviews ? 'button-selected' : 'button'} onClick={this.handleReviewsClick}><h1>Reviews</h1></button>
           </div>
         </div>
         <div className="container">

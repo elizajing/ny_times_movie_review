@@ -15,10 +15,10 @@
   border-style: solid;
   border-width: 10px;
   border-color: #305674;
-  padding-top: 20px;
-  // text-align: left;
+  padding-top: 1%;
   margin-left: 10%;
   margin-right: 10%;
+  margin-top: 3%;
 }
 .button {
   border: 10px solid white;
@@ -27,7 +27,12 @@
 .button:hover {
   border: 10px solid #305674;
 }
-.button:focus {outline:0;}
+%button:focus {outline:0;}
+.button-selected {
+  border: 10px solid #305674;
+  @extend %button:focus;
+}
+
 .p{
   margin: 30px;
   font-size: 20px;
