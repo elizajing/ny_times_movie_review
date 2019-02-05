@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import MovieItem from '../MovieItem/movieItem.js';
-import './mostPopular.scss';
+import '../InTheatres/inTheatres.scss';
+// import './mostPopular.scss';
 
 class MostPopular extends Component{
 constructor(props){

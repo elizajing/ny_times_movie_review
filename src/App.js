@@ -62,24 +62,27 @@ class App extends Component {
     }else if(mostPopular){
       div = <MostPopular />
     }else{
-      div = <p className="p"><span role="img" aria-label="smojies"> 🎬 🎥 🍿 😬 </span></p>
+      div = <div className="emoji"><span role="img" aria-label="smojies"> 🎬 🎥 🍿 😬 </span></div>
     }
     return (
       <div>
         <div className="header">
           <div className="header-item">
-            <button className={home ? 'button-selected' : 'button'} onClick={this.handleHomeClick}><h1>Hello!</h1></button>
+            <span className={home ? 'item-selected' : 'button'} onClick={this.handleHomeClick}><h2>Hello!</h2></span>
           </div>
           <div className="header-item">
-            <button className={inTheatres ? 'button-selected' : 'button'} onClick={this.handleInTheatresClick}><h1>In Theatres</h1></button>
+            <span className={inTheatres ? 'item-selected' : 'button'} onClick={this.handleInTheatresClick}><h2>In Theatres</h2></span>
           </div>
           <div className="header-item">
-            <button className={mostPopular ? 'button-selected' : 'button'} onClick={this.handleMostPopularClick}><h1>Most Popular</h1></button>
+            <span className={mostPopular ? 'item-selected' : 'button'} onClick={this.handleMostPopularClick}><h2>Most Popular</h2></span>
           </div>
           <div className="header-item">
-            <button className={reviews ? 'button-selected' : 'button'} onClick={this.handleReviewsClick}><h1>Reviews</h1></button>
+            <span className={reviews ? 'item-selected' : 'button'} onClick={this.handleReviewsClick}><h2>Reviews</h2></span>
           </div>
+          
         </div>
+        <div className="line"></div>
+        
         <div className="container">
           {div}
         </div>

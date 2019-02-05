@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import MovieItem from '../MovieItem/movieItem.js';
+import './inTheatres.scss';
 
 class InTheatres extends Component{
   constructor(props){
