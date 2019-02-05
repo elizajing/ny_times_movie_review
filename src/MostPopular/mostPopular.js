@@ -9,7 +9,7 @@ constructor(props){
       this.mostPopularUrl = process.env.REACT_APP_MDB_MOST_POPULAR;
       this.mdbApiKey = process.env.REACT_APP_MDB_API_KEY;
       this.configurationPath = process.env.REACT_APP_MDB_CONFIGURATION_URL;
-      this.state = this.state = {error: false, isLoaded: false, items: [], images: []};
+      this.state = this.state = {error: false, isLoaded: false, items: []};
     }
 
     componentDidMount() {
@@ -32,10 +32,7 @@ constructor(props){
         )
         .then(
             ()=>{
-                var images = this.getPosters(this.state.items);
-                this.setState({
-                images: images
-                });
+                this.getPosters(this.state.items);
             }
         )
     }
@@ -43,7 +40,6 @@ constructor(props){
     getPosters(list){
         var size = 'w342';
         var configurationUrl = this.configurationPath + this.mdbApiKey
-        let imageUrlList;
         let baseUrl;
         
         fetch(configurationUrl)
@@ -74,14 +70,12 @@ constructor(props){
             }
           )
     
-        return imageUrlList;
-    
       }
 
     render(){
         const {error, isLoaded, items} = this.state
         let div;
-
+        
         if(error){
         div = <div>Something went wrong: {error.message}</div>
         }else if(!isLoaded){
