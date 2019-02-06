@@ -12,13 +12,14 @@ For the frontend, React is used. Project setup is initially set up using `npx cr
 
 TODO
 ----
-- Handle errors, instead of the web browser throwing errors like can't iterate over undefined.
 - Refactor so that `In Theatres` and `Most Popular` reuse the same component
-- Implement `News` 
+- Add link to each movie title for movie under `In Theatres` and `Most Popular`
 - Make each movie item height constant, implement `More info` button when the overview text is too long
-- Make responsive
 - Add IMDB rating to each movie item
-- Add font awesome (?), depends on the design change
+- Implement `News` 
+- Make responsive
+- Handle errors, instead of the web browser throwing errors like can't iterate over undefined.
 - Handle data not found
 - API key not valid, return json: `{"fault":{"faultstring":"Invalid ApiKey","detail":{"errorcode":"oauth.v2.InvalidApiKey"}}}`, for NY times reviews API.
+- Add font awesome (?), depends on the design change
 - Handle return data that has null multimedia values in `Search` -> done

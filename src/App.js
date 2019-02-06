@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import './App.scss';
 import Reviews from './Reviews/reviews.js';
-import InTheatres from './InTheatres/inTheatres';
-import MostPopular from './MostPopular/mostPopular.js'
+import InTheatres from './InTheatres/inTheatres.js';
+import MostPopular from './MostPopular/mostPopular.js';
+
 
 class App extends Component {
   constructor(props){
@@ -15,8 +16,8 @@ class App extends Component {
       reviews: false
     }
   }
-//()=> lexical scoping,
-// Arrow Functions lexically bind their context so this actually refers to the originating context
+  // Arrow Functions lexically bind their context so this actually refers to the originating context
+  //()=> lexical scoping,
   handleReviewsClick = () =>{
     this.setState({
       reviews: true,
@@ -52,9 +53,11 @@ class App extends Component {
       mostPopular: true
     })
   }
+
   render() {
     const {home, reviews, inTheatres, mostPopular} = this.state;
     let div;
+    
     if(reviews){
       div = <Reviews />
     }else if(inTheatres){
@@ -62,13 +65,13 @@ class App extends Component {
     }else if(mostPopular){
       div = <MostPopular />
     }else{
-      div = <div className="emoji"><span role="img" aria-label="smojies"> 🎬 🎥 🍿 😬 </span></div>
+      div =  <div className="emoji"><span role="img" aria-label="smojies"> 🎬 🎥 🍿 😬 </span></div>
     }
     return (
       <div>
         <div className="header">
           <div className="header-item">
-            <span className={home ? 'item-selected' : 'button'} onClick={this.handleHomeClick}><h2>Hello!</h2></span>
+            <span className={home ? 'item-selected' : 'button'} onClick={this.handleHomeClick}><h2>News</h2></span>
           </div>
           <div className="header-item">
             <span className={inTheatres ? 'item-selected' : 'button'} onClick={this.handleInTheatresClick}><h2>In Theatres</h2></span>
@@ -79,8 +82,8 @@ class App extends Component {
           <div className="header-item">
             <span className={reviews ? 'item-selected' : 'button'} onClick={this.handleReviewsClick}><h2>Reviews</h2></span>
           </div>
-          
         </div>
+        
         <div className="line"></div>
         
         <div className="container">
