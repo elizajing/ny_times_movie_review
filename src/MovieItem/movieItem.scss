@@ -1,5 +1,5 @@
 $movie-title: 16px;
-$text-size: 14px;
+$text-size: 12px;
 $standard-color: #305674;
 $margin: 1%;
 $item-margin: 4%;
@@ -19,11 +19,14 @@ $item-margin: 4%;
 
 .wrapper > .horizontal-item {
     margin: $margin;
-    width: 50%;
+    width: 65%;
 }
-
-.img-container img {
+.wrapper > .horizontal-img {
     margin: auto;
+    width: 35%;
+}
+.img-container img {
+    // margin: auto;
     width: 100%;
 }
 
@@ -69,8 +72,7 @@ $item-margin: 4%;
   }
   input{
     width: 20%;
-    // height: 30%;
     font-size: 20px;
-    margin-left: 10%;
+    margin-left: 22%;
   }
   

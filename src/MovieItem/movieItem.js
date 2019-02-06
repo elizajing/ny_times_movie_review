@@ -8,7 +8,7 @@ class MovieItem extends Component{
         const {image, date, title, title_link, overview} = this.props;
         return(
             <div className="wrapper">
-                <div className="horizontal-item">
+                <div className="horizontal-img">
                     <div className="img-container">
                          {image === null ? <img src={not_found} alt="pic"></img> : <img src={image} alt="pic"></img>} 
                     </div>
