@@ -1,8 +1,10 @@
+$margin: 20%;
+
 .header{
   height: 15%;
   width: 50%;
   display: flex;
-  margin-left: 23%;
+  margin-left: $margin;
 }
 .header-item{
   flex-direction: row;
@@ -22,7 +24,7 @@
   // border-color: #305674;
   // background-color: #305674;  
   // padding-top: 1%;
-  margin-left: 4%;
+  // margin-left: 4%;
   margin-top: 1%;
 }
 .line{

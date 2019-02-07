@@ -5,7 +5,7 @@ $margin: 1%;
 $item-margin: 4%;
 
 .wrapper{
-    // height: 250px;
+    // height: 325px;
     width: 40%;
     border-style: solid;
     border-width: 5px;
@@ -18,14 +18,13 @@ $item-margin: 4%;
 
 .wrapper > .horizontal-item {
     margin: $margin;
-    width: 65%;
+    width: 50%;
 }
 .wrapper > .horizontal-img {
-    margin: auto;
-    width: 35%;
+    // margin: auto;
+    width: 50%;
 }
 .img-container img {
-    // margin: auto;
     width: 100%;
 }
 
@@ -63,8 +62,15 @@ $item-margin: 4%;
   .link:visited{
      text-decoration: none;
   }
+  .more-info{
+    color: grey;
+    text-decoration: underline;
+    font-size: 10px;
+    margin-top: $item-margin;
+    margin-left: $item-margin;
+  }
   .loading{
-    margin: 10px;
+    margin-left: 20%;
   }
   input:focus{
     outline: none;

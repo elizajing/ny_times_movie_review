@@ -12,9 +12,8 @@ For the frontend, React is used. Project setup is initially set up using `npx cr
 
 TODO
 ----
-- Refactor so that `In Theatres` and `Most Popular` reuse the same component
+- Make movie item heigh adapt to image size and implement `More info` button when the overview text is too long
 - Add link to each movie title for movie under `In Theatres` and `Most Popular`
-- Make each movie item height constant, implement `More info` button when the overview text is too long
 - Add IMDB rating to each movie item
 - Implement `News` 
 - Make responsive
@@ -22,4 +21,8 @@ TODO
 - Handle data not found
 - API key not valid, return json: `{"fault":{"faultstring":"Invalid ApiKey","detail":{"errorcode":"oauth.v2.InvalidApiKey"}}}`, for NY times reviews API.
 - Add font awesome (?), depends on the design change
-- Handle return data that has null multimedia values in `Search` -> done
+
+Done
+----
+- Refactor so that `In Theatres` and `Most Popular` reuse the same component 
+- Handle return data that has null multimedia values in `Search`
