@@ -13,18 +13,7 @@ class MovieItem extends Component{
             showModal: false
         };
     }
-    componentWillMount(){
-        document.addEventListener('mousedown', this.handleClick, false);
-    }
-    componentWillUnmount(){
-        document.removeEventListener('mousedown', this.handleClick, false);
-    }
-    handleClick = (e) => {
-        if(this.node.contains(e.target)){
-            return
-        }
-        this.hideModal();
-    }
+    
     componentDidMount(){
         const text = this.props.overview;   
         const newOverview = this.checkOverviewSize(text);
@@ -74,22 +63,21 @@ class MovieItem extends Component{
                     (
                     <div>
                         <div className="overview">{newOverview}...</div>
-                        <button onClick={this.showModal}className="more-info">More...</button>
+                        <button onClick={this.showModal} className="more-info">More...</button>
                     </div>
                     ): (
                         <div className="overview">{overview}</div>
                     )}
                 </div>
-                <div ref={node => this.node = node}>
-                    <MovieModal
-                        show={this.state.showModal}
-                        handleClose={this.hideModal}
-                        image={image}
-                        date={date}
-                        title={title}
-                        overview={overview}
-                        />
-                </div>
+                
+                <MovieModal
+                    show={this.state.showModal}
+                    handleClose={this.hideModal}
+                    image={image}
+                    date={date}
+                    title={title}
+                    overview={overview}
+                    />
                 
             </div>
         );

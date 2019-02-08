@@ -18,22 +18,17 @@ $margin: 20%;
 }
 .container{
   align-items: center;
-  // height: 100%;
-  // border-style: solid;
-  // border-width: 10px;
-  // border-color: #305674;
-  // background-color: #305674;  
-  // padding-top: 1%;
-  // margin-left: 4%;
   margin-top: 1%;
 }
 .line{
   border-top: 10px solid #305674;
   width: 100%;
   color: #305674;
-  
 }
-
+.button{
+  text-emphasis: bold;
+  border: none; 
+}
 .emoji{
   margin-left: 22%;
   margin-top: 2%;

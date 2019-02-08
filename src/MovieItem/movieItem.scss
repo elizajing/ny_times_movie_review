@@ -62,13 +62,18 @@ $item-margin: 4%;
   .link:visited{
      text-decoration: none;
   }
-  .more-info{
-    color: grey;
-    text-decoration: underline;
+  .more-info {
+    color: white;
     font-size: 10px;
     margin-top: $item-margin;
     margin-left: $item-margin;
+    background-color: #305674;
+    border: none;
   }
+  .more-info:hover{
+    background-color: grey;
+    color: white;
+}
   .loading{
     margin-left: 20%;
     margin-top: 4%;
