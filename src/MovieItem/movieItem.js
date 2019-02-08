@@ -47,7 +47,12 @@ class MovieItem extends Component{
     render(){
         const {image, date, title, title_link, overview} = this.props;
         const {newOverview, isChanged} = this.state;
-        
+        let titleLinkExists;
+        if(title_link === undefined){
+            titleLinkExists = false;
+        }else{
+            titleLinkExists = true;
+        }
         return(
             <div className="wrapper">
                 <div className="horizontal-img">
@@ -56,7 +61,14 @@ class MovieItem extends Component{
                     </div>
                 </div>
                 <div className="horizontal-item">
-                    <div className="title"><a href={title_link} className="link"><b>{title}</b></a></div>
+                {/* {check if title_link is present or not} */}
+                {titleLinkExists === true ? 
+                    (
+                        <div className="title"><a href={title_link} className="link"><b>{title}</b></a></div>
+                    ):(
+                        <div className="title" onClick={this.showModal}><a href={'#'} className="link"><b>{title}</b></a></div>
+                    )}
+                    
                     <div className="date">{date}</div>
                     
                     {isChanged === true ? 
