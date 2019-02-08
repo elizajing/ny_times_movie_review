@@ -21,7 +21,7 @@ $item-margin: 4%;
     width: 50%;
 }
 .wrapper > .horizontal-img {
-    // margin: auto;
+    margin: auto;
     width: 50%;
 }
 .img-container img {
@@ -71,6 +71,7 @@ $item-margin: 4%;
   }
   .loading{
     margin-left: 20%;
+    margin-top: 4%;
   }
   input:focus{
     outline: none;

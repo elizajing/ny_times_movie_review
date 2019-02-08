@@ -12,8 +12,7 @@ For the frontend, React is used. Project setup is initially set up using `npx cr
 
 TODO
 ----
-- Make movie item heigh adapt to image size and implement `More info` button when the overview text is too long
-- Add link to each movie title for movie under `In Theatres` and `Most Popular`
+- Implement modal to show more detailed info on each movie(when clicking on title) and add link to each movie title for movie under `In Theatres` and `Most Popular`
 - Add IMDB rating to each movie item
 - Implement `News` 
 - Make responsive
@@ -24,5 +23,6 @@ TODO
 
 Done
 ----
+- Make movie item heigh adapt to image size and implement `More info` button when the overview text is too long
 - Refactor so that `In Theatres` and `Most Popular` reuse the same component 
 - Handle return data that has null multimedia values in `Search`

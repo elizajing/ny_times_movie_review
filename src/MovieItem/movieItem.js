@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './movieItem.scss';
 import not_found from '../assets/not_found.svg';
+import MovieModal from '../MovieModal/movieModal.js';
 
 class MovieItem extends Component{
     constructor(props){
@@ -8,8 +9,21 @@ class MovieItem extends Component{
 
         this.state = {
             newOverview: '',
-            isChanged: false
+            isChanged: false,
+            showModal: false
         };
+    }
+    componentWillMount(){
+        document.addEventListener('mousedown', this.handleClick, false);
+    }
+    componentWillUnmount(){
+        document.removeEventListener('mousedown', this.handleClick, false);
+    }
+    handleClick = (e) => {
+        if(this.node.contains(e.target)){
+            return
+        }
+        this.hideModal();
     }
     componentDidMount(){
         const text = this.props.overview;   
@@ -30,11 +44,21 @@ class MovieItem extends Component{
 
         return overview;
     }
+    showModal = () => {
+        this.setState({
+            showModal: true
+        })
+    }
+    hideModal = () => {
+        this.setState({
+            showModal: false
+        })
+    }
 
     render(){
         const {image, date, title, title_link, overview} = this.props;
         const {newOverview, isChanged} = this.state;
-        console.log('---overview: '+ JSON.stringify(overview))
+        
         return(
             <div className="wrapper">
                 <div className="horizontal-img">
@@ -50,14 +74,21 @@ class MovieItem extends Component{
                     (
                     <div>
                         <div className="overview">{newOverview}...</div>
-                        <a href={title_link} className="more-info">More...</a>
+                        <button onClick={this.showModal}className="more-info">More...</button>
                     </div>
                     ): (
                         <div className="overview">{overview}</div>
                     )}
-                    
-                    
-                    
+                </div>
+                <div ref={node => this.node = node}>
+                    <MovieModal
+                        show={this.state.showModal}
+                        handleClose={this.hideModal}
+                        image={image}
+                        date={date}
+                        title={title}
+                        overview={overview}
+                        />
                 </div>
                 
             </div>

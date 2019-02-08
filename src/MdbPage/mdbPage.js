@@ -4,7 +4,7 @@ import MovieItem from '../MovieItem/movieItem.js';
 class MdbPage extends Component{
     constructor(props){
         super(props);
-        this.state = this.state = {error: false, isLoaded: false, items: []};
+        this.state = {error: false, isLoaded: false, items: []};
     }
 
     componentDidMount(){
