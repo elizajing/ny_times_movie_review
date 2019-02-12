@@ -63,7 +63,7 @@ class MovieModal extends Component{
             <div className="horizontal-item">
                 <div className="title"><b>{title}</b></div>
                 <div className="date">{date}</div>
-                <div className="info"><b>IMDB:</b> {movieDetails.imdbRating}/10</div>
+                <div className="info"> {movieDetails.imdbRating}/10</div>
                 <div className="info"><b>Director:</b> {movieDetails.Director}</div>                        
                 <div className="info"><b>Actors:</b> {movieDetails.Actors}</div>
                 <div className="overview">{overview}</div>

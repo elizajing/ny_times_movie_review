@@ -4,19 +4,20 @@
     left: 0;
     width:100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.6);
+    background: rgba(48, 86, 116, 0.5);
   }
   
 .modal-main {
   position:fixed;
   background: white;
-  width: 50%;
+  width: 40%;
   // height: auto;
   top:50%;
   left:50%;
   transform: translate(-50%,-50%);
   padding: 2%;
   display: flex;
+  border: solid 5px #305674;
 }
 
 .display-block {
