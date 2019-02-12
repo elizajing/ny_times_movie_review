@@ -5,13 +5,11 @@
     width:100%;
     height: 100%;
     background: rgba(128,128,128, 0.8);
-  }
-  
+  } 
 .modal-main {
   position:fixed;
   background: white;
   width: 40%;
-  // height: auto;
   top:50%;
   left:50%;
   transform: translate(-50%,-50%);
@@ -19,27 +17,24 @@
   display: flex;
   border: solid 5px #305674;
 }
-
 .display-block {
   display: block;
 }
-
 .display-none {
   display: none;
 }
-
-.horizontal-img { //.modal-main > 
+.horizontal-img { 
   margin: auto;
   width: 50%;
+  img{
+    width: 100%;  
+  }
 }
-.img-container img {
-  width: 100%;
-}
-.horizontal-item { //.modal-main > 
+.horizontal-item {
   margin: 1%;
   width: 50%;
 }
-.horizontal-x { //.modal-main >
+.horizontal-x { 
   width: 5%;
   height: 5%;
   text-align: center;

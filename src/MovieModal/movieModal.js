@@ -71,9 +71,7 @@ class MovieModal extends Component{
                 <div ref={node => this.node = node}>
                     <section className="modal-main">
                         <div className="horizontal-img">
-                            <div className="img-container">
-                                    {image === null ? <img src={not_found} alt="pic"></img> : <img src={image} alt="pic"></img>} 
-                            </div>
+                            {image === null ? <img src={not_found} alt="pic"></img> : <img src={image} alt="pic"></img>} 
                         </div>
                         <div className="horizontal-item">
                             <div style={{margin: "4%"}}><b>{title}</b></div>

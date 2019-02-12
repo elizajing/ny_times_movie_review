@@ -12,8 +12,7 @@ For the frontend, React is used. Project setup is initially set up using `npx cr
 
 TODO
 ----
-- Implement modal to show more detailed info on each movie(when clicking on title) and add link to each movie title for movie under `In Theatres` and `Most Popular`
-- Add IMDB rating to each movie item
+- Add IMDB rating to each movie item and show the rating in visual symbols, e.g stars or in gauge symbol
 - Implement `News` 
 - Make responsive
 - Handle errors, instead of the web browser throwing errors like can't iterate over undefined.
@@ -23,6 +22,7 @@ TODO
 
 Done
 ----
+- Implement modal to show more detailed info on each movie(when clicking on title) and add link to each movie title for movie under `In Theatres` and `Most Popular`
 - Make movie item heigh adapt to image size and implement `More info` button when the overview text is too long
 - Refactor so that `In Theatres` and `Most Popular` reuse the same component 
 - Handle return data that has null multimedia values in `Search`

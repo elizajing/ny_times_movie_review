@@ -57,9 +57,7 @@ class MovieItem extends Component{
         return(
             <div className="wrapper">
                 <div className="horizontal-img">
-                    <div className="img-container">
-                         {image === null ? <img src={not_found} alt="pic"></img> : <img src={image} alt="pic"></img>} 
-                    </div>
+                    {image === null ? <img src={not_found} alt="pic"></img> : <img src={image} alt="pic"></img>} 
                 </div>
                 <div className="horizontal-item">
                     {titleLinkExists === true ? 
