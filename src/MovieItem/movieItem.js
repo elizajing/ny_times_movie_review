@@ -66,7 +66,7 @@ class MovieItem extends Component{
                     (
                         <div className="title"><a href={title_link} className="link"><b>{title}</b></a></div>
                     ):(
-                        <div className="title" onClick={this.showModal}><a href={'#'} className="link"><b>{title}</b></a></div>
+                        <div className="link" onClick={this.showModal}><b>{title}</b></div>
                     )}
                         
                     <div className="date">{date}</div>

@@ -38,12 +38,13 @@ $item-margin: 4%;
     margin-left: $item-margin;
     margin-top: 4%;
 }
-.title{
+%title{
     font-size: $movie-title;
     font-weight: bold;
     margin: $item-margin;
 }
 .link{
+    @extend %title;
     display: inline-block;
     color: #000;
     text-decoration: none;
