@@ -76,7 +76,7 @@ class MovieModal extends Component{
                             </div>
                         </div>
                         <div className="horizontal-item">
-                            <div className="title"><b>{title}</b></div>
+                            <div style={{margin: "4%"}}><b>{title}</b></div>
                             <div className="date">{date}</div>
                             <div className="info"> {movieDetails.imdbRating}/10</div>
                             <div className="info"><b>Director:</b> {movieDetails.Director}</div>                        
