@@ -16,7 +16,19 @@ class MovieModal extends Component{
             movieDetails: {}
         }
     }
-
+    componentWillMount(){
+        document.addEventListener('mousedown', this.handleClick, false);
+    }
+    componentWillUnmount(){
+        document.removeEventListener('mousedown', this.handleClick, false);
+    }
+    handleClick = (e) => {
+        if (this.node.contains(e.target)){
+            return
+        }
+        
+        this.props.handleClose();
+    }
     componentDidMount(){
         const title = this.props.title;
         const year = this.props.date.split('-')[0]
@@ -41,6 +53,7 @@ class MovieModal extends Component{
     }
     render(){
         const {show, handleClose, image, date, title, overview} = this.props;
+        
         const {error, isLoaded, movieDetails} = this.state;
         const showHideClassName = show ? "modal display-block" : "modal display-none";    
         let div;
@@ -52,28 +65,30 @@ class MovieModal extends Component{
         }
         //TODO: handle when a movie is not found in OMDB
         return (
-        <div className={showHideClassName}>
-            {div}
-            <section className="modal-main">
-            <div className="horizontal-img">
-                <div className="img-container">
-                        {image === null ? <img src={not_found} alt="pic"></img> : <img src={image} alt="pic"></img>} 
+            
+            <div className={showHideClassName}>
+                {div}
+                <div ref={node => this.node = node}>
+                    <section className="modal-main">
+                        <div className="horizontal-img">
+                            <div className="img-container">
+                                    {image === null ? <img src={not_found} alt="pic"></img> : <img src={image} alt="pic"></img>} 
+                            </div>
+                        </div>
+                        <div className="horizontal-item">
+                            <div className="title"><b>{title}</b></div>
+                            <div className="date">{date}</div>
+                            <div className="info"> {movieDetails.imdbRating}/10</div>
+                            <div className="info"><b>Director:</b> {movieDetails.Director}</div>                        
+                            <div className="info"><b>Actors:</b> {movieDetails.Actors}</div>
+                            <div className="overview">{overview}</div>
+                        </div>
+                        
+                        <button className="horizontal-x" onClick={handleClose}>X</button>
+                    </section>
                 </div>
             </div>
-            <div className="horizontal-item">
-                <div className="title"><b>{title}</b></div>
-                <div className="date">{date}</div>
-                <div className="info"> {movieDetails.imdbRating}/10</div>
-                <div className="info"><b>Director:</b> {movieDetails.Director}</div>                        
-                <div className="info"><b>Actors:</b> {movieDetails.Actors}</div>
-                <div className="overview">{overview}</div>
-            </div>
-            
-            <button className="horizontal-x" onClick={handleClose}>X</button>
-            
-            
-            </section>
-        </div>
+        
         )
     }
 }

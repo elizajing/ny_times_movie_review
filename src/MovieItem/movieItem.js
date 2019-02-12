@@ -39,6 +39,7 @@ class MovieItem extends Component{
         })
     }
     hideModal = () => {
+        console.log('--- Hide modal')
         this.setState({
             showModal: false
         })
