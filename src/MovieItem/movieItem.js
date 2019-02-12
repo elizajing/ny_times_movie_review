@@ -61,14 +61,13 @@ class MovieItem extends Component{
                     </div>
                 </div>
                 <div className="horizontal-item">
-                {/* {check if title_link is present or not} */}
-                {titleLinkExists === true ? 
+                    {titleLinkExists === true ? 
                     (
                         <div className="title"><a href={title_link} className="link"><b>{title}</b></a></div>
                     ):(
                         <div className="title" onClick={this.showModal}><a href={'#'} className="link"><b>{title}</b></a></div>
                     )}
-                    
+                        
                     <div className="date">{date}</div>
                     
                     {isChanged === true ? 
