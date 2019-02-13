@@ -72,7 +72,7 @@ class Reviews extends Component{
   render(){
     const { error, isLoaded, items, searchError, searchLoaded, searchRes } = this.state;
     let div;
-
+    
     if (error) {
       div =  <div>Error: {error.message}</div>;
     } else if (!isLoaded) {
@@ -88,7 +88,7 @@ class Reviews extends Component{
     return(
       
       <div>
-        <input type="text" onKeyUp={this.handleKeyUp} placeholder="search"/>
+        <input type="text" className="input" onKeyUp={this.handleKeyUp} placeholder="search"/>
         {div}
       </div>
       
