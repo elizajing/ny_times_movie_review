@@ -3,7 +3,8 @@ import './App.scss';
 import Reviews from './Reviews/reviews.js';
 import InTheatres from './InTheatres/inTheatres.js';
 import MostPopular from './MostPopular/mostPopular.js';
-
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { faStar } from '@fortawesome/free-solid-svg-icons';
 
 class App extends Component {
   constructor(props){
@@ -15,6 +16,7 @@ class App extends Component {
       mostPopular: false,  
       reviews: false
     }
+    library.add(faStar);
   }
   // Arrow Functions lexically bind their context so this actually refers to the originating context
   //()=> lexical scoping,
@@ -57,7 +59,7 @@ class App extends Component {
   render() {
     const {home, reviews, inTheatres, mostPopular} = this.state;
     let div;
-    
+
     if(reviews){
       div = <Reviews />
     }else if(inTheatres){

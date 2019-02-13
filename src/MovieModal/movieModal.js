@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './movieModal.scss';
 import not_found from '../assets/not_found.svg';
 import '../MovieItem/movieItem.scss';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 class MovieModal extends Component{
     constructor(props){
@@ -76,7 +77,10 @@ class MovieModal extends Component{
                         <div className="horizontal-item">
                             <div style={{margin: "4%"}}><b>{title}</b></div>
                             <div className="date">{date}</div>
-                            <div className="info"> {movieDetails.imdbRating}/10</div>
+                            <div className="info">
+                                <FontAwesomeIcon icon="star" color="gold"/> 
+                                {movieDetails.imdbRating}/10
+                            </div>
                             <div className="info"><b>Director:</b> {movieDetails.Director}</div>                        
                             <div className="info"><b>Actors:</b> {movieDetails.Actors}</div>
                             <div className="overview">{overview}</div>
