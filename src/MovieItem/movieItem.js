@@ -13,9 +13,9 @@ class MovieItem extends Component{
             showModal: false
         };
     }
-    
+
     componentDidMount(){
-        const text = this.props.overview;   
+        const text = this.props.overview;
         const newOverview = this.checkOverviewSize(text);
         if(text !== newOverview){
             this.setState({
@@ -23,7 +23,7 @@ class MovieItem extends Component{
                 isChanged: true
             })
         }
-        
+
     }
     checkOverviewSize(text){
         var overview = text;
@@ -56,19 +56,19 @@ class MovieItem extends Component{
         return(
             <div className="wrapper">
                 <div className="horizontal-img">
-                    {image === null ? <img src={not_found} alt="pic"></img> : <img src={image} alt="pic"></img>} 
+                    {image === null ? <img src={not_found} alt="pic" onClick={this.showModal}></img> : <img src={image} alt="pic"onClick={this.showModal}></img>}
                 </div>
                 <div className="horizontal-item">
-                    {titleLinkExists === true ? 
+                    {titleLinkExists === true ?
                     (
                         <div className="title"><a href={title_link} className="link"><b>{title}</b></a></div>
                     ):(
                         <div className="link" onClick={this.showModal}><b>{title}</b></div>
                     )}
-                        
+
                     <div className="date">{date}</div>
-                    
-                    {isChanged === true ? 
+
+                    {isChanged === true ?
                     (
                     <div>
                         <div className="overview">{newOverview}...</div>
@@ -78,7 +78,7 @@ class MovieItem extends Component{
                         <div className="overview">{overview}</div>
                     )}
                 </div>
-                
+
                 <MovieModal
                     show={this.state.showModal}
                     handleClose={this.hideModal}
@@ -87,7 +87,7 @@ class MovieItem extends Component{
                     title={title}
                     overview={overview}
                     />
-                
+
             </div>
         );
     }
