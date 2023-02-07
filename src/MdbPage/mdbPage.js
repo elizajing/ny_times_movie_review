@@ -7,30 +7,58 @@ class MdbPage extends Component{
         this.state = {error: false, isLoaded: false, items: []};
     }
 
+    fetchData = async (url) => {
+      const response = await fetch(url);
+
+      if(!response.ok){
+        throw new Error('Data could not be fetched!');
+      } else {
+        return response.json();
+      }
+    }
     componentDidMount(){
         var url = this.props.url;
 
-        fetch(url)
-        .then(res => res.json())
-        .then(
-            (result) => {
-            this.setState({
-                isLoaded: true,
-                items: result.results
-            });
-            },
-            (error) => {
-            this.setState({
-                isLoaded: true,
-                error
-            });
-            }
-        )
+        this.fetchData(url)
+        .then((result) => {
+          this.setState({
+              isLoaded: true,
+              items: result.results
+          });
+          },
+          (error) => {
+          this.setState({
+              isLoaded: true,
+              error
+          });
+          })
         .then(
             ()=>{
                 this.getPosters(this.state.items);
             }
         )
+
+        // .then(res => res.json())
+        // fetch(url)
+        // .then(
+        //     (result) => {
+        //     this.setState({
+        //         isLoaded: true,
+        //         items: result.results
+        //     });
+        //     },
+        //     (error) => {
+        //     this.setState({
+        //         isLoaded: true,
+        //         error
+        //     });
+        //     }
+        // )
+        // .then(
+        //     ()=>{
+        //         this.getPosters(this.state.items);
+        //     }
+        // )
     }
 
     getPosters(list){
@@ -48,7 +76,7 @@ class MdbPage extends Component{
               this.setState({
                 error
               });
-            }  
+            }
           )
           .then(
             () => {
@@ -77,6 +105,9 @@ class MdbPage extends Component{
         div = <div>Something went wrong: {error.message}</div>
         }else if(!isLoaded){
         div = <div>Loading...</div>
+        }
+        if(items.length === 0) {
+          div = <div>No movies in theatres right now...</div>
         }
         return(
             <div className="movies-grid">

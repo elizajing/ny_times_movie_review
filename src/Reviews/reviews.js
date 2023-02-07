@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, useEffect } from 'react';
 import ReviewsList from '../ReviewsList/reviewsList.js';
 
 class Reviews extends Component{
@@ -10,25 +10,31 @@ class Reviews extends Component{
 
     this.timeout = 0;
   }
+
+  fetchData = async (url) => {
+    const response = await fetch(url);
+    if(!response.ok){
+      throw new Error('Data could not be fetched!');
+    } else {
+      return response.json();
+    }
+  }
+
   componentDidMount() {
     var url = this.apiUrl + this.apiKey;
 
-    fetch(url)
-    .then(res => res.json())
-    .then(
-        (result) => {
-          this.setState({
-            isLoaded: true,
-            items: result.results
-          });
-        },
-        (error) => {
-          this.setState({
-            isLoaded: true,
-            error
-          });
-        }
-      )
+    this.fetchData(url)
+    .then((res) => {
+      this.setState({
+        isLoaded: true,
+        items: res.results
+      })
+    }).catch((error) => {
+      this.setState({
+        isLoaded: true,
+        error
+      })
+    })
   }
 
   handleKeyUp = (event) => {
@@ -43,7 +49,7 @@ class Reviews extends Component{
     }else{
       this.timeout = setTimeout(()=>{
         this.getSearchData(val)
-      }, 500)
+      }, 600)
     }
 
   }
@@ -51,28 +57,25 @@ class Reviews extends Component{
   getSearchData = (keyWord) => {
     var url = this.apiUrl + this.apiKey + "&query=" + keyWord;
 
-    fetch(url)
-    .then(res => res.json())
-    .then(
-      (result) => {
-        this.setState({
-          searchLoaded: true,
-          searchRes: result.results
-        });
-      },
-      (error) => {
-        this.setState({
-          searchLoaded: true,
-          searchError: error
-        });
-      }
-    )
+    this.fetchData(url)
+    .then((res) => {
+      this.setState({
+        searchLoaded: true,
+        searchRes: res.results
+      })
+    }).catch((error) => {
+      this.setState({
+        searchLoaded: true,
+        searchError: error
+      })
+    })
+
   }
- 
+
   render(){
     const { error, isLoaded, items, searchError, searchLoaded, searchRes } = this.state;
     let div;
-    
+
     if (error) {
       div =  <div>Error: {error.message}</div>;
     } else if (!isLoaded) {
@@ -86,12 +89,12 @@ class Reviews extends Component{
     }
 
     return(
-      
+
       <div>
         <input type="text" className="input" onKeyUp={this.handleKeyUp} placeholder="search"/>
         {div}
       </div>
-      
+
     )
   }
 }
